@@ -1,0 +1,53 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Список комнат{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<h1>Наши комнаты</h1>
+<br><br>
+<!-- Форма фильтрации -->
+<div class="filter-container">
+    <form method="GET">
+        <div class="filter-group">
+            <label for="room_type">Тип комнаты:</label>
+            <select id="room_type" name="room_type">
+                <option value="">Все</option>
+                <option value="single" {% if request.GET.room_type == 'single' %}selected{% endif %}>Одноместный</option>
+                <option value="double" {% if request.GET.room_type == 'double' %}selected{% endif %}>Двухместный</option>
+                <option value="suite" {% if request.GET.room_type == 'suite' %}selected{% endif %}>Люкс</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="min_price">Минимальная цена:</label>
+            <input type="number" id="min_price" name="min_price" value="{{ request.GET.min_price }}">
+        </div>
+
+        <div class="filter-group">
+            <label for="max_price">Максимальная цена:</label>
+            <input type="number" id="max_price" name="max_price" value="{{ request.GET.max_price }}">
+        </div>
+
+        <button type="submit">Применить фильтр</button>
+    </form>
+</div>
+
+<br><br><br><br><br><br>
+
+<div class="rooms-container">
+    {% for room in rooms %}
+        <div class="room-card">
+            <h2>{{ room.title }}</h2>
+            <p>{{ room.detail }}</p>
+            <p>Тип: {{ room.get_room_type_display }}</p>
+            <p>Цена за ночь: {{ room.price_per_night }} руб.</p>
+            {% if room.image %}
+                <img src="{{ room.image.url }}" alt="{{ room.title }}" class="room-image">
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% load static %}
+
+{% block content %}
+  <div class="centered-content">
+    <div class="black-space">
+        <div class="text-container">
+            <h1>Роскошь и Комфорт</h1>
+            <h2>В Каждом Мгновении</h2>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="{% static 'main/img/Banner_image.png' %}" alt="Background Image" class="background-image">
+    </div>
+  </div>
+
+  <div class="services-section">
+    <div class="service-item">
+        <img src="{% static 'main/img/Coffe_To_Go.png' %}" alt="Напитки" class="service-icon">
+        <p>Приветственные напитки</p>
+    </div>
+    <div class="service-item">
+        <img src="{% static 'main/img/Vector.png' %}" alt="Аренда машины" class="service-icon">
+        <p>Машина<br>Услуга аренды</p>
+    </div>
+    <div class="service-item">
+        <img src="{% static 'main/img/Bank.jpg' %}" alt="Спа-салон" class="service-icon">
+        <p>Курорт<br>Спа-салон</p>
+    </div>
+    <div class="service-item">
+        <img src="{% static 'main/img/Wifi_High.png' %}" alt="Wi-Fi" class="service-icon">
+        <p>Свободный<br>Услуга Wi-Fi</p>
+    </div>
+  </div>
+
+  <div class="why-stay-section">
+    <h1>Почему Вы должны Остаться Здесь</h1>
+  </div>
+
+  <div class="why-stay-images-container">
+    <div class="why-stay-image-container image-one">
+      <img src="{% static 'main/img/Frame6.png' %}" alt="Описание первого изображения" class="why-stay-image">
+    </div>
+    <div class="why-stay-image-container image-two">
+      <img src="{% static 'main/img/Group10581.png' %}" alt="Описание второго изображения" class="why-stay-image">
+    </div>
+  </div>
+<div class="rooms-section">
+   <h2>Наши номера</h2>
+</div>
+
+
+
+
+<div class="choice-section">
+    <h1>Мир Выбора</h1>
+    <div class="choice-image-container">
+        <img src="{% static 'main/img/RoomGallery.png' %}" alt="Описание изображения" class="choice-image">
+    </div>
+</div>
+<br><br><br>
+<div class="about-section">
+    <div class="about-text">
+        <h2>О нас</h2>
+        <div class="underline"></div>
+        <p>Это место, где сочетаются комфорт, стиль и безупречное обслуживание. Мы стремимся создать для вас атмосферу уюта и спокойствия, чтобы каждый гость чувствовал себя как дома. Наша команда профессионалов с радостью поможет вам с любыми вопросами, а широкий выбор удобств сделает ваш отдых по-настоящему незабываемым.</p>
+        <button class="explore-button">Исследовать</button>
+    </div>
+   <div class="about-image">
+    <img src="{% static 'main/img/Rectangle12.png' %}" alt="Interior of the place">
+</div>
+
+</div>
+<br><br><br>
+<div class="image-container">
+    <img src="{% static 'main/img/атзыв.png' %}" alt="Первое изображение" class="image">
+    <img src="{% static 'main/img/рекомаендации.png' %}" alt="Второе изображение" class="image">
+</div>
+
+
+<!-- Футер -->
+<footer class="footer-section">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Quick link</h3>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="{% url 'about' %}">About us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Связаться</h3>
+            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+        <div class="footer-column">
+            <h3>Useful</h3>
+            <ul>
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Blogs</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-logo">
+            <img src="{% static 'main/img/profile.png' %}" alt="Shadat.co">
+            <span>Shadat.co</span>
+        </div>
+        <div class="footer-copy">
+            <p>© 2024 Shadat.co. Все права защищены.</p>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

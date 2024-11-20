@@ -1,0 +1,153 @@
+/* Контейнер для всех комнат */
+.rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;  /* Отступ между карточками */
+    margin: 20px auto;
+}
+
+/* Стили для каждой карточки комнаты */
+.room-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Все элементы выравниваются с отступами сверху и снизу */
+    width: 350px;  /* Увеличенная ширина карточки */
+    height: 600px;  /* Увеличенная высота карточки */
+    padding: 20px;
+    border: 1px solid #ddd;  /* Граница вокруг карточки */
+    border-radius: 8px;  /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Тень для карточки */
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease;  /* Анимация при наведении */
+    overflow: hidden;  /* Скроем переполнение */
+}
+
+/* Стили при наведении на карточку */
+.room-card:hover {
+    transform: translateY(-10px);  /* Поднимаем карточку при наведении */
+}
+
+/* Изображения комнат */
+.room-image {
+    width: 100%;  /* Изображение растягивается по ширине карточки */
+    height: 250px;  /* Фиксированная высота изображения */
+    object-fit: cover;  /* Изображение будет обрезано по размеру, сохраняя пропорции */
+    border-radius: 4px;  /* Скругленные углы изображения */
+    margin-bottom: 20px;  /* Отступ снизу */
+}
+
+/* Заголовок комнаты */
+.room-card h2 {
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;  /* Пример шрифта */
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Текст в карточке */
+.room-card p {
+    font-size: 16px;
+    line-height: 1.6;  /* Межстрочный интервал для удобства чтения */
+    color: #555;
+    flex-grow: 1;  /* Позволяет тексту растягивать карточку, чтобы карточки были одинаковой высоты */
+}
+
+/* Стили для кнопки или действия (если необходимо) */
+.room-card button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.room-card button:hover {
+    background-color: #45a049;
+}
+
+/* Контейнер для формы фильтрации */
+.filter-container {
+    display: flex;
+    justify-content: center;  /* Центрирование по горизонтали */
+    align-items: center;      /* Центрирование по вертикали */
+    gap: 20px;  /* Отступы между фильтрами */
+    flex-wrap: wrap;  /* Если фильтры не помещаются, они перейдут на новую строку */
+    margin-bottom: 30px; /* Отступ снизу */
+}
+
+/* Стили для группы фильтров */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 250px;  /* Ограничение ширины для каждого фильтра */
+}
+
+/* Стили для лейблов и инпутов */
+.filter-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Кнопка формы */
+.filter-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-container button:hover {
+    background-color: #45a049;
+}
+
+/* Форма фильтрации */
+.filters-form {
+    display: flex;
+    justify-content: center;  /* Центрирование фильтров по оси X */
+    flex-wrap: wrap;  /* Фильтры будут переходить на новую строку, если не помещаются */
+    gap: 20px;  /* Отступы между фильтрами */
+    margin-bottom: 30px;
+}
+
+.filters-form label {
+    font-size: 16px;
+}
+
+.filters-form select, .filters-form input {
+    padding: 5px;
+    font-size: 16px;
+    width: 200px;  /* Фиксированная ширина для инпутов и селектов */
+}
+
+.filters-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters-form button:hover {
+    background-color: #45a049;
+}
+

@@ -1,0 +1,73 @@
+.navbar-custom {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #121212;
+    color: #fff;
+    z-index: 1000;
+    padding: 20px 0; /* Увеличенный padding для высоты */
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 20px; /* Отступ слева для всей навигации */
+    padding-right: 20px; /* Отступ справа */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 20px; /* Отступ между логотипом и меню */
+    margin-left: 400px; /* Отступ слева для логотипа */
+}
+
+.navbar-logo-img {
+    width: 30px; /* Размер логотипа */
+    height: auto;
+}
+
+.navbar-logo-text {
+    font-size: 20px; /* Размер текста рядом с логотипом */
+    margin-left: 10px;
+}
+
+.navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start; /* Сдвигаем все пункты немного влево */
+    align-items: center;
+    flex-grow: 1; /* Это заставляет меню занимать оставшееся пространство */
+    margin-left: 50px; /* Немного сдвигаем меню влево */
+}
+
+.navbar-menu-item {
+    margin: 0 10px; /* Уменьшаем расстояние между элементами */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-menu-item:hover {
+    color: #ffa500;
+}
+
+.navbar-booking-btn {
+    position: absolute;
+    top: 50%;
+    right: 500px; /* Немного сдвигаем кнопку бронирования влево */
+    transform: translateY(-50%); /* Центрирует кнопку по вертикали */
+}
+
+.navbar-booking-btn .btn {
+    color: #ffa500;
+    border-color: #ffa500;
+}
+
+.navbar-booking-btn .btn:hover {
+    background-color: #ffa500;
+    color: #333;
+}
+

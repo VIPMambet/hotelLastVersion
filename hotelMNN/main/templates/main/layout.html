@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{% static 'main/css/about.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/born_home.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
 
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -24,9 +26,9 @@
     </div>
     <ul class="navbar-menu">
         <li><a href="{%  url 'home' %}" class="navbar-menu-item">Главная</a></li>
-        <li><a href="#" class="navbar-menu-item">Отзыв</a></li>
+        <li><a href="{%  url 'register' %}" class="navbar-menu-item">Вход</a></li>
         <li><a href="{%  url 'about' %}" class="navbar-menu-item">О нас</a></li>
-        <li><a href="#" class="navbar-menu-item">Контакт</a></li>
+        <li><a href="{%  url 'profile' %}" class="navbar-menu-item">Профиль</a></li>
     </ul>
     <div class="navbar-booking-btn">
     <a href="{% url 'born_home' %}" class="btn btn-outline-light">Бронировать</a>

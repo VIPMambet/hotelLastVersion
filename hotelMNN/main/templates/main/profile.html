@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="profile-container">
+    <h1 class="profile-title">Профиль пользователя</h1>
+    <p class="profile-info">Добро пожаловать, <span class="profile-username">{{ user.username }}</span>!</p>
+    <p class="profile-info">Ваш email: <span class="profile-email">{{ user.email }}</span></p>
+</div>
+{% endblock %}

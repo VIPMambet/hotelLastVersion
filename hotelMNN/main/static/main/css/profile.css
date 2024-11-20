@@ -1,0 +1,48 @@
+/* Стиль для контейнера профиля */
+.profile-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.profile-title {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стиль для информации о пользователе */
+.profile-info {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.profile-username,
+.profile-email {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* Добавим стили для адаптивности */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 20px;
+    }
+
+    .profile-title {
+        font-size: 2em;
+    }
+
+    .profile-info {
+        font-size: 1em;
+    }
+}

@@ -1,9 +1,13 @@
+from django.contrib.auth import views as auth_views
 from django.urls import path
-from .views import index, about, profile_view, register_view  # Убедитесь, что здесь есть register_view
+from . import views  # Импортируем ваши представления
 
 urlpatterns = [
-    path('', index, name='home'),
-    path('about/', about, name='about'),
-    path('profile/', profile_view, name='profile'),
-    path('register/', register_view, name='register'),  # Путь для регистрации
+    path('accounts/profile/', views.profile1_view, name='profile'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', views.login_view, name='login'),  # Ваш кастомный вход
+    path('', views.index, name='home'),
+    path('about/', views.about, name='about'),
+    path('profile/', views.profile1_view, name='profile'),
+    path('register/', views.register_view, name='register'),
 ]

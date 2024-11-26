@@ -1,13 +1,32 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Профиль{% endblock %}
-
-{% load static %}
-
 {% block content %}
 <div class="profile-container">
-    <h1 class="profile-title">Профиль пользователя</h1>
-    <p class="profile-info">Добро пожаловать, <span class="profile-username">{{ user.username }}</span>!</p>
-    <p class="profile-info">Ваш email: <span class="profile-email">{{ user.email }}</span></p>
+    <h1 class="profile-title">Ваши бронирования</h1>
+
+    <!-- Информация о бронированиях -->
+    <div class="profile-bookings">
+        {% if bookings %}
+            <ul>
+                {% for booking in bookings %}
+                    <li>
+                        <h3>{{ booking.room.title }}</h3>
+                        <p>Дата заезда: {{ booking.checkin_date }}</p>
+                        <p>Дата выезда: {{ booking.checkout_date }}</p>
+                        <p>Количество гостей: {{ booking.guests }}</p>
+                        <p>Статус оплаты: {% if booking.is_paid %}Оплачено{% else %}Не оплачено{% endif %}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>У вас нет бронирований.</p>
+        {% endif %}
+    </div>
+
+    <!-- Кнопка выхода -->
+    <form action="{% url 'logout' %}" method="POST" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">Выйти</button>
+    </form>
 </div>
 {% endblock %}

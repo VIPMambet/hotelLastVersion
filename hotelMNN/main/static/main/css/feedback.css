@@ -1,0 +1,119 @@
+/* Основной контейнер страницы */
+.feedback-page {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок страницы */
+.feedback-header h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feedback-header p {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Стили для формы отзыва */
+.feedback-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.feedback-form label {
+    font-size: 1.1em;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.feedback-form input, .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+}
+
+.feedback-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Кнопка отправки отзыва */
+.feedback-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    width: 100%;
+}
+
+.feedback-form button:hover {
+    background-color: #45a049;
+}
+
+/* Стили для списка отзывов */
+.feedback-list h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feedback-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.feedback-list li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-list li strong {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.feedback-list li em {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Стили для кнопки возврата на главную */
+.feedback-button {
+    display: block;
+    text-align: center;
+    background-color: #2196F3;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.feedback-button:hover {
+    background-color: #1e88e5;
+}

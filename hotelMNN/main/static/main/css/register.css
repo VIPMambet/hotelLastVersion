@@ -1,85 +1,92 @@
-/* Общие стили для страницы регистрации */
-.registration-container {
+/* Обёртка для страницы регистрации */
+.register-page-wrapper {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
+    background-color: #f9f9fb; /* Светлый фон для всей страницы */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
-.registration-title {
+/* Контейнер формы регистрации */
+.register-form-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 450px; /* Ограничение ширины для компактности */
+}
+
+/* Заголовок страницы */
+.register-page-title {
     text-align: center;
     color: #333;
-    font-size: 2em;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-/* Стили для формы регистрации */
-.registration-form {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 30px;
-    width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Стили для формы */
+.user-registration-form {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Стиль для каждого элемента в форме */
-.registration-form p {
-    margin-bottom: 15px;
+/* Стили для каждого поля ввода */
+.user-registration-form p {
+    margin-bottom: 20px;
 }
 
-.registration-form input[type="text"],
-.registration-form input[type="email"],
-.registration-form input[type="password"] {
+.user-registration-form input[type="text"],
+.user-registration-form input[type="email"],
+.user-registration-form input[type="password"] {
     width: 100%;
     padding: 12px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border-radius: 6px;
+    border: 1px solid #ddd;
     font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 20px; /* Отступ между полями ввода */
 }
 
-.registration-form input[type="text"]:focus,
-.registration-form input[type="email"]:focus,
-.registration-form input[type="password"]:focus {
+/* Стиль при фокусе на поле ввода */
+.user-registration-form input[type="text"]:focus,
+.user-registration-form input[type="email"]:focus,
+.user-registration-form input[type="password"]:focus {
     border-color: #007BFF;
     outline: none;
 }
 
 /* Стиль кнопки регистрации */
-.registration-btn {
-    width: 100%;
+.register-submit-btn {
     padding: 12px;
     background-color: #007BFF;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 15px;
+    transition: background-color 0.3s ease;
 }
 
-.registration-btn:hover {
+.register-submit-btn:hover {
     background-color: #0056b3;
 }
 
-/* Для ошибок валидации */
-.registration-form .error {
+/* Ошибки валидации */
+.user-registration-form .error {
     color: red;
     font-size: 14px;
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-    .registration-form {
-        width: 90%;
+    .register-form-container {
         padding: 20px;
     }
 
-    .registration-title {
-        font-size: 1.5em;
+    .register-page-title {
+        font-size: 1.5rem;
     }
 }

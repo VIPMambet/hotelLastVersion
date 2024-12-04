@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import RegistrationForm  # Импорт формы регистрации
 from django.contrib.auth.decorators import login_required
-from born.models import Booking
+from .forms import RegistrationForm  # Импорт формы регистрации
+# main/views.py
+from born.models import Booking  # Импорт модели Booking из приложения born
+from django.shortcuts import render
+# main/views.py
+from django.shortcuts import render, redirect
+from .models import Feedback
+from django.shortcuts import render
 
 
 # Главная страница
@@ -52,15 +58,40 @@ def login_view(request):
     return render(request, 'main/login.html', {'form': form})
 
 
+def feedback_view(request):
+    feedbacks = ...  # Логика получения отзывов
+    return render(request, 'main/feedback.html', {'feedbacks': feedbacks})
+
+
 # Профиль
 @login_required
 def profile_view(request):
+    # Получаем все бронирования текущего пользователя
     bookings = Booking.objects.filter(user=request.user)
+
+    # Если бронирований нет, передаем None в контекст
+    if not bookings:
+        bookings = None
+
     return render(request, 'main/profile.html', {'user': request.user, 'bookings': bookings})
 
+# Представление для страницы отзывов
+# main/views.py
+from django.shortcuts import render, redirect
+from .models import Feedback
 
+def feedback_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        feedback = request.POST.get('feedback')
 
-from django.shortcuts import render
+        new_feedback = Feedback(name=name, feedback=feedback)
+        new_feedback.save()
 
-def profile1_view(request):
-    return render(request, 'main/profile.html')  # Шаблон, который вы хотите отобразить
+        return redirect('feedback')
+
+    # Получаем все отзывы
+    feedbacks = Feedback.objects.all()
+
+    return render(request, 'main/feedback.html', {'feedbacks': feedbacks})
+

@@ -1,0 +1,44 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Оставить отзыв{% endblock %}
+
+{% block content %}
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<div class="feedback-page">
+    <div class="feedback-header">
+        <h1>Оставьте ваш отзыв</h1>
+        <p>Мы ценим ваше мнение и будем рады услышать ваши отзывы о нашем сайте и услугах.</p>
+    </div>
+
+    <!-- Форма для отправки отзыва -->
+    <div class="feedback-form">
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="feedback">Отзыв:</label><br>
+            <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea><br><br>
+
+            <button type="submit">Отправить отзыв</button>
+        </form>
+    </div>
+
+    <!-- Вывод всех отзывов -->
+    <div class="feedback-list">
+        <h2>Отзывы наших клиентов:</h2>
+        <ul>
+            {% for feedback in feedbacks %}
+                <li>
+                    <strong>{{ feedback.name }}</strong>: {{ feedback.feedback }} <br>
+                    <em>Дата: {{ feedback.created_at }}</em>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="/" class="feedback-button">На главную</a>
+</div>
+{% endblock %}

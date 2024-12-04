@@ -1,32 +1,44 @@
 {% extends 'main/layout.html' %}
+{% load static %}
 
 {% block content %}
-<div class="profile-container">
-    <h1 class="profile-title">Ваши бронирования</h1>
+    <div class="profile-container">
+        <h1>Мои бронирования</h1>
 
-    <!-- Информация о бронированиях -->
-    <div class="profile-bookings">
+        <!-- Ссылка на выход из аккаунта -->
+        <div class="profile-logout-link">
+            <a href="{% url 'logout' %}" class="profile-btn profile-btn-logout">Выйти</a>
+        </div>
+
         {% if bookings %}
-            <ul>
-                {% for booking in bookings %}
-                    <li>
-                        <h3>{{ booking.room.title }}</h3>
-                        <p>Дата заезда: {{ booking.checkin_date }}</p>
-                        <p>Дата выезда: {{ booking.checkout_date }}</p>
-                        <p>Количество гостей: {{ booking.guests }}</p>
-                        <p>Статус оплаты: {% if booking.is_paid %}Оплачено{% else %}Не оплачено{% endif %}</p>
-                    </li>
-                {% endfor %}
-            </ul>
+            <div class="profile-bookings-table">
+                <table class="profile-table">
+                    <thead>
+                        <tr>
+                            <th>Комната</th>
+                            <th>Дата заезда</th>
+                            <th>Дата выезда</th>
+                            <th>Гости</th>
+                            <th>Имя гостя</th>
+                            <th>Email гостя</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings %}
+                            <tr class="profile-table-row">
+                                <td>{{ booking.room.title }}</td>
+                                <td>{{ booking.check_in }}</td>
+                                <td>{{ booking.check_out }}</td>
+                                <td>{{ booking.guests }}</td>
+                                <td>{{ booking.user.username }}</td>
+                                <td>{{ booking.user.email }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% else %}
             <p>У вас нет бронирований.</p>
         {% endif %}
     </div>
-
-    <!-- Кнопка выхода -->
-    <form action="{% url 'logout' %}" method="POST" class="logout-form">
-        {% csrf_token %}
-        <button type="submit" class="logout-button">Выйти</button>
-    </form>
-</div>
 {% endblock %}

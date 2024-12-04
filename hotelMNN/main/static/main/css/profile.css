@@ -1,68 +1,63 @@
-/* Стиль для контейнера профиля */
+/* Общие стили для страницы профиля */
 .profile-container {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Стиль для заголовка */
-.profile-title {
+h1 {
+    text-align: center;
+    font-size: 2rem;
     color: #333;
-    font-size: 2.5em;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-/* Стиль для информации о бронированиях */
-.profile-bookings {
-    font-size: 1.2em;
-    color: #555;
-    margin: 10px 0;
-    text-align: center;
+.profile-logout-link {
+    text-align: right;
+    margin-bottom: 20px;
 }
 
-/* Стиль для кнопки "Выйти" */
-.logout-form {
+.profile-btn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.profile-btn-logout:hover {
+    background-color: #c0392b;
+}
+
+.profile-bookings-table .profile-table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
 }
 
-.logout-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.profile-table th, .profile-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.logout-button:hover {
-    background-color: #0056b3;
+.profile-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .profile-container {
-        padding: 20px;
-    }
+.profile-table td {
+    background-color: #fafafa;
+}
 
-    .profile-title {
-        font-size: 2em;
-    }
+.profile-table-row:hover {
+    background-color: #f1f1f1;
+}
 
-    .profile-bookings {
-        font-size: 1em;
-    }
-
-    .logout-button {
-        font-size: 0.9em;
-        padding: 8px 16px;
-    }
+.profile-table td:last-child {
+    word-wrap: break-word;
 }

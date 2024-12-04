@@ -4,11 +4,10 @@
 
 {% load static %}
 
-
-
 {% block content %}
-
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- Форма фильтрации -->
 <div class="filter-container">
     <form method="GET">
@@ -40,73 +39,22 @@
 <h1 class="centered-title">Наши комнаты</h1>
 
 <div class="rooms-container">
-    {% for room in rooms %}
-        <div class="room-card">
-            <h2>{{ room.title }}</h2>
-            <p>{{ room.detail }}</p>
-            <p>Тип: {{ room.get_room_type_display }}</p>
-            <p>Цена за ночь: {{ room.price_per_night }} руб.</p>
-            {% if room.image %}
-                <img src="{{ room.image.url }}" alt="{{ room.title }}" class="room-image">
-            {% endif %}
-            <!-- Кнопка бронирования -->
-            <button class="btn-book" data-room-id="{{ room.id }}">Забронировать</button>
-        </div>
+        {% for room in rooms %}
+    <div class="room-card">
+        <h2>{{ room.title }}</h2>
+        <p>{{ room.detail }}</p>
+        <p>Тип: {{ room.get_room_type_display }}</p>
+        <p>Цена за ночь: {{ room.price_per_night }} тг.</p>
+        {% if room.image %}
+            <img src="{{ room.image.url }}" alt="{{ room.title }}" class="room-image">
+        {% endif %}
+
+        <!-- Изменённый блок для перехода на страницу бронирования -->
+        <a href="{% url 'booking_create' room.id %}" class="btn-book">Забронировать</a>
+    </div>
+    {% empty %}
+    <p>Нет доступных комнат по выбранным фильтрам.</p>
     {% endfor %}
 </div>
-
-<!-- Модальное окно -->
-<div id="bookingModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Бронирование</h2>
-        <!-- Форма бронирования -->
-        <form id="bookingForm">
-            <div>
-                <label for="checkin-date">Дата заезда:</label>
-                <input type="text" id="checkin-date" name="checkin" class="flatpickr" placeholder="Выберите дату заезда" required>
-            </div>
-            <div>
-                <label for="checkout-date">Дата выезда:</label>
-                <input type="text" id="checkout-date" name="checkout" class="flatpickr" placeholder="Выберите дату выезда" required>
-            </div>
-            <div>
-                <label for="guests">Количество гостей:</label>
-                <input type="number" id="guests" name="guests" min="1" required>
-            </div>
-            <button type="submit" class="btn btn-success">Подтвердить бронирование</button>
-        </form>
-    </div>
-</div>
-
-<!-- Второе модальное окно для ввода реквизитов -->
-<div id="paymentModal" class="payment-modal">
-    <div class="payment-modal-content">
-        <span class="payment-modal-close" id="closePaymentModal">&times;</span>
-        <h2>Введите реквизиты для оплаты</h2>
-        <form id="paymentForm">
-            <div class="payment-input-group">
-                <label for="paymentCardNumber">Номер карты:</label>
-                <input type="text" id="paymentCardNumber" placeholder="Введите номер карты" required>
-            </div>
-            <div class="payment-input-group">
-                <label for="paymentCardHolder">Имя владельца:</label>
-                <input type="text" id="paymentCardHolder" placeholder="Введите имя" required>
-            </div>
-            <div class="payment-input-group">
-                <label for="paymentExpiryDate">Срок действия:</label>
-                <input type="month" id="paymentExpiryDate" required>
-            </div>
-            <div class="payment-input-group">
-                <label for="paymentCVV">CVV:</label>
-                <input type="password" id="paymentCVV" placeholder="Введите CVV" maxlength="3" required>
-            </div>
-            <button type="submit" class="payment-btn-submit">Подтвердить оплату</button>
-        </form>
-    </div>
-</div>
-
-
-
 
 {% endblock %}

@@ -1,0 +1,105 @@
+/* Обёртка для центрирования */
+.booking-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Вместо 'center' для корректного размещения */
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+/* Контейнер для формы */
+.booking-page-container {
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Фото комнаты */
+.room-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.room-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* Контейнер для системы бронирования и оплаты */
+.booking-details-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет перенос элементов на новую строку, если не помещаются */
+    justify-content: space-between; /* Равномерное распределение между элементами */
+    gap: 20px; /* Расстояние между колонками */
+    margin-bottom: 20px;
+}
+
+/* Система бронирования слева */
+.booking-system {
+    flex: 1; /* Занимает равную часть контейнера */
+    min-width: 400px; /* Минимальная ширина, чтобы элементы не сужались слишком сильно */
+}
+
+/* Система оплаты справа */
+.payment-system {
+    flex: 1; /* Занимает равную часть контейнера */
+    min-width: 400px; /* Минимальная ширина */
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ввод данных для карты */
+.payment-system input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Кнопка */
+.booking-page-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #27ae60;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.booking-page-button:hover {
+    background-color: #2ecc71;
+    transform: translateY(-2px);
+}
+
+/* Центрирование кнопки между системами бронирования и оплаты */
+.booking-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Убираем ненужные дубли поля дополнительных услуг */
+.booking-system textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

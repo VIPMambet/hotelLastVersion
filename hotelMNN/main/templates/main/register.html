@@ -4,15 +4,18 @@
 {% load static %}
 
 {% block content %}
-<br><br>
-<br><br>
-<br><br>
-<div class="registration-container">
-    <h2 class="registration-title"></h2>
-    <form method="post" class="registration-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="registration-btn">Зарегистрироваться</button>
-    </form>
+<br><br><br>
+<br><br><br>
+<!-- Контейнер для всей страницы регистрации -->
+<div class="register-page-wrapper">
+    <!-- Основной контейнер для формы регистрации -->
+    <div class="register-form-container">
+        <h2 class="register-page-title">Регистрация</h2>
+        <form method="post" class="user-registration-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="register-submit-btn">Зарегистрироваться</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Бронирование комнаты{% endblock %}
+
+{% block content %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<div class="booking-page-wrapper">
+    <div class="booking-page-container">
+        <!-- Фото комнаты сверху -->
+        <div class="room-image-container">
+            {% if room.image %}
+                <img src="{{ room.image.url }}" alt="{{ room.title }}" class="room-image">
+            {% endif %}
+        </div>
+
+        <h1>Бронирование комнаты: {{ room.title }}</h1>
+        <p>Тип: {{ room.get_room_type_display }}</p>
+        <p>Цена за ночь: {{ room.price_per_night }} тг.</p>
+
+        <!-- Контейнер для системы бронирования -->
+        <div class="booking-details-container">
+            <div class="booking-system">
+                <h2>Система бронирования</h2>
+                <form method="POST" action="{% url 'booking_create' room.id %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <br>
+                    <div class="booking-button-container">
+                        <button type="submit" class="booking-page-button">Забронировать</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Система оплаты -->
+            <div class="payment-system">
+                <h2>Система оплаты</h2>
+                <label for="card_number">Номер карты:</label>
+                <input type="text" id="card_number" name="card_number" placeholder="Введите номер карты" required>
+
+                <label for="expiration_date">Срок действия:</label>
+                <input type="month" id="expiration_date" name="expiration_date" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Введите CVV" required>
+
+                <label for="cardholder_name">Имя владельца карты:</label>
+                <input type="text" id="cardholder_name" name="cardholder_name" placeholder="Введите имя владельца" required>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

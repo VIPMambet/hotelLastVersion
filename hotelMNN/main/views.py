@@ -1,26 +1,21 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
 from django.contrib.auth import login
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from .forms import RegistrationForm  # Импорт формы регистрации
-# main/views.py
-from born.models import Booking  # Импорт модели Booking из приложения born
-from django.shortcuts import render
-# main/views.py
-from django.shortcuts import render, redirect
-from .models import Feedback
-from django.shortcuts import render
-
+from django.core.mail import send_mail
+from django.contrib.auth import get_user_model
+from django.contrib import messages
+from .forms import RegistrationForm
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 # Главная страница
 def index(request):
     return render(request, 'main/index.html')
 
-
 # Страница о нас
 def about(request):
     return render(request, 'main/about.html')
-
 
 # Регистрация
 def register_view(request):
@@ -39,7 +34,6 @@ def register_view(request):
 
     return render(request, 'main/register.html', {'form': form})
 
-
 # Вход
 def login_view(request):
     # Если пользователь уже авторизован, перенаправляем его на главную страницу
@@ -57,12 +51,6 @@ def login_view(request):
 
     return render(request, 'main/login.html', {'form': form})
 
-
-def feedback_view(request):
-    feedbacks = ...  # Логика получения отзывов
-    return render(request, 'main/feedback.html', {'feedbacks': feedbacks})
-
-
 # Профиль
 @login_required
 def profile_view(request):
@@ -75,11 +63,7 @@ def profile_view(request):
 
     return render(request, 'main/profile.html', {'user': request.user, 'bookings': bookings})
 
-# Представление для страницы отзывов
-# main/views.py
-from django.shortcuts import render, redirect
-from .models import Feedback
-
+# Страница с отзывами
 def feedback_view(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -95,3 +79,17 @@ def feedback_view(request):
 
     return render(request, 'main/feedback.html', {'feedbacks': feedbacks})
 
+# Представления для сброса пароля
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'main/password_reset_form.html'  # Ваш шаблон для формы сброса пароля
+    email_template_name = 'main/password_reset_email.html'  # Шаблон письма с ссылкой для сброса пароля
+    subject_template_name = 'main/password_reset_subject.txt'  # Тема письма
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'main/password_reset_done.html'
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'main/password_reset_confirm.html'
+
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'main/password_reset_complete.html'

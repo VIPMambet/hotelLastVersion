@@ -139,3 +139,11 @@ LOGIN_URL = 'login'  # Убедитесь, что это соответству�
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
+# Настройки электронной почты для Gmail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'madievyrys123@mail.ru'  # Ваш email (например, your-email@gmail.com)
+EMAIL_HOST_PASSWORD = 'atJnZpLkqjidkQ12HJxh'  # Ваш пароль от email
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
